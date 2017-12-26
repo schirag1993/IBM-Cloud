@@ -1,0 +1,38 @@
+<%include ../partials/header%>
+<div class="container">
+  <div class="jumbotron">
+<h1>Translation App</h1>
+</div>
+<div class="row">
+  <div class="col-lg-12 col-lg-offset-3">
+    <h3>IBM Credentials:</h3>
+    <form class="langTranslation" action="/translate" method="post">
+      <input type="text" name="username" placeholder="Enter IBM username here">
+      <input type="text" name="password" placeholder="Enter IBM password here">
+      <input type="text" name="url" placeholder="Enter IBM URL here">
+      </div>
+      <div class="col-lg-6">
+        <h3>Translate from:</h3>
+        <select name='fromLang'>
+          <% languages.forEach(function(language){ %>
+        <option value="<%=language.langCode%>"><%=language.language%></option>
+        <% }); %>
+        </select>
+      </div>
+      <div class="col-lg-6">
+        <h3>Translate to:</h3>
+        <select name='toLang'>
+          <% languages.forEach(function(language){ %>
+        <option value="<%=language.langCode%>"><%=language.language%></option>
+        <% }); %>
+      </select>
+      </div>
+      <div class="col-lg-12">
+        <textarea name="textToConvert" rows="4" cols="150" placeholder="Enter text to be converted"></textarea>
+      </div>
+      <input class='btn btn-lg btn-primary btn-block' type='Submit'>
+    </form>
+  </div>
+</div>
+</div>
+<%include ../partials/footer%>
